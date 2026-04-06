@@ -1,0 +1,562 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://www.spotify.com/favicon.ico" type="image/x-icon">
+</head>
+<body> -->
+
+    <!-- Login Modal -->
+    <!-- <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('login-modal')">&times;</span>
+            <div class="modal-header">
+                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt="Spotify Logo">
+                <h2>Log in to Spotify</h2>
+            </div>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-email">Email or username</label>
+                    <input type="text" id="login-email" placeholder="Email or username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <div class="form-options">
+                    <label class="toggle-container">
+                        <input type="checkbox" checked>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot your password?</a>
+                </div>
+                <button type="submit" class="submit-btn">LOG IN</button>
+            </form>
+            <div class="divider"><span>or</span></div>
+            <div class="social-login">
+                <button class="social-btn"><i class="fa-brands fa-google"></i> Continue with Google</button>
+                <button class="social-btn"><i class="fa-brands fa-facebook"></i> Continue with Facebook</button>
+                <button class="social-btn"><i class="fa-brands fa-apple"></i> Continue with Apple</button>
+            </div>
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" onclick="switchModal('login-modal','signup-modal')">Sign up for Spotify</a></p>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Sign Up Modal -->
+    <!-- <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('signup-modal')">&times;</span>
+            <div class="modal-header">
+                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt="Spotify Logo">
+                <h2>Sign up for Spotify</h2>
+            </div>
+            <form id="signup-form" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="signup-email">What's your email?</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-email">Confirm your email</label>
+                    <input type="email" id="signup-confirm-email" placeholder="Enter your email again" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Create a password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-name">What should we call you?</label>
+                    <input type="text" id="signup-name" placeholder="Enter a profile name" required>
+                </div>
+                <div class="form-group">
+                    <label>Date of birth</label>
+                    <div class="dob-inputs">
+                        <input type="number" id="dob-day" placeholder="Day" min="1" max="31" required>
+                        <select id="dob-month" required>
+                            <option value="" disabled selected>Month</option>
+                            <option>January</option><option>February</option><option>March</option>
+                            <option>April</option><option>May</option><option>June</option>
+                            <option>July</option><option>August</option><option>September</option>
+                            <option>October</option><option>November</option><option>December</option>
+                        </select>
+                        <input type="number" id="dob-year" placeholder="Year" min="1900" max="2024" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <label class="radio-container"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-container"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-container"><input type="radio" name="gender" value="non-binary"> Non-binary</label>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="toggle-container">
+                        <input type="checkbox" required>
+                        I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn">SIGN UP</button>
+            </form>
+            <div class="modal-footer">
+                <p>Already have an account? <a href="#" onclick="switchModal('signup-modal','login-modal')">Log in</a></p>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Profile Modal -->
+    <!-- <div id="profile-modal" class="modal">
+        <div class="modal-content profile-modal-content">
+            <span class="close-btn" onclick="closeModal('profile-modal')">&times;</span>
+            <div class="profile-header">
+                <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+                <h2 id="profile-name">User Name</h2>
+            </div>
+            <div class="profile-stats">
+                <div class="stat-item"><span class="stat-number">0</span><span class="stat-label">Followers</span></div>
+                <div class="stat-item"><span class="stat-number">0</span><span class="stat-label">Following</span></div>
+            </div>
+            <div class="profile-actions">
+                <button class="profile-btn"><i class="fa-solid fa-user-plus"></i> Follow</button>
+                <button class="profile-btn"><i class="fa-solid fa-gear"></i> Settings</button>
+            </div>
+            <button class="logout-btn" onclick="handleLogout()">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </button>
+        </div>
+    </div>
+
+    <div class="container"> -->
+        <!-- Sidebar -->
+        <!-- <div class="sidebar">
+            <div class="logo">
+                <a href="#"><img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt="Spotify Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="#" data-section="home" onclick="showSection('home'); return false;">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="search" onclick="showSection('search'); return false;">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="library" onclick="showSection('library'); return false;">
+                        <i class="fa-solid fa-book"></i> Your Library
+                    </a>
+                </li>
+            </ul>
+            <div class="playlist-section">
+                <h4>PLAYLISTS</h4>
+                <ul>
+                    <li onclick="filterPlaylist('all')">All Songs</li>
+                    <li onclick="filterPlaylist('chill')">Lo-Fi Beats</li>
+                    <li onclick="filterPlaylist('energetic')">Top Hits 2024</li>
+                    <li onclick="filterPlaylist('workout')">Gym Motivation</li>
+                    <li onclick="filterPlaylist('focus')">Focus Flow</li>
+                </ul>
+            </div>
+        </div> -->
+
+        <!-- Main Content -->
+        <!-- <div class="main-content">
+            <div class="header-nav">
+                <div class="nav-buttons">
+                    <button id="back-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="fwd-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="user-profile" id="user-profile-area">
+                    <button class="sign-up" onclick="openModal('signup-modal')">Sign Up</button>
+                    <button class="log-in"  onclick="openModal('login-modal')">Log In</button>
+                </div>
+            </div> -->
+
+            <!-- Home Section -->
+            <!-- <div id="home-section" class="content-section">
+                <h2>Good afternoon</h2>
+                <div class="recently-played" id="recently-played"></div>
+                <h2>Made For You</h2>
+                <div class="cards-container" id="cards-container"></div>
+            </div> -->
+
+            <!-- Search Section -->
+            <!-- <div id="search-section" class="content-section" style="display:none;">
+                <h2>Search</h2>
+                <div class="search-container">
+                    <input type="text" id="search-input"
+                           placeholder="What do you want to listen to?"
+                           oninput="handleSearch(event)">
+                </div>
+                <div class="search-categories" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+                    <button class="category-chip active" onclick="filterByCategory('all', event)">All</button>
+                    <button class="category-chip" onclick="filterByCategory('chill', event)">Chill</button>
+                    <button class="category-chip" onclick="filterByCategory('energetic', event)">Energetic</button>
+                    <button class="category-chip" onclick="filterByCategory('workout', event)">Workout</button>
+                    <button class="category-chip" onclick="filterByCategory('focus', event)">Focus</button>
+                </div>
+                <div class="cards-container" id="search-results"></div>
+            </div> -->
+
+            <!-- Library Section -->
+            <!-- <div id="library-section" class="content-section" style="display:none;">
+                <h2>Your Library</h2>
+                <div class="library-tabs">
+                    <button class="library-tab active" onclick="showLibraryTab('songs', this)">Songs</button>
+                    <button class="library-tab" onclick="showLibraryTab('albums', this)">Albums</button>
+                    <button class="library-tab" onclick="showLibraryTab('artists', this)">Artists</button>
+                    <button class="library-tab" onclick="showLibraryTab('playlists', this)">Playlists</button>
+                </div>
+                <div class="library-list" id="library-list"></div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Player Bar -->
+    <!-- <div class="player-bar">
+        <div class="song-info">
+            <img id="current-art" src="" alt="cover">
+            <div class="text">
+                <h4 id="current-title">Select a song</h4>
+                <p  id="current-artist">Artist Name</p>
+            </div>
+            <i class="fa-regular fa-heart like-icon" onclick="toggleLike(this)" title="Save to Liked Songs"></i>
+        </div>
+
+        <div class="player-controls">
+            <div class="control-buttons">
+                <i class="fa-solid fa-shuffle"       id="shuffle-btn" onclick="toggleShuffle()" title="Shuffle"></i>
+                <i class="fa-solid fa-backward-step" id="prev"        title="Previous"></i>
+                <div class="play-pause" id="play-btn" onclick="togglePlay()">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <i class="fa-solid fa-forward-step"  id="next"        title="Next"></i>
+                <i class="fa-solid fa-repeat"         id="repeat-btn" onclick="toggleRepeat()" title="Repeat"></i>
+            </div>
+            <div class="progress-container">
+                <span id="curr-time">0:00</span>
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <span id="dur-time">0:00</span>
+            </div>
+        </div>
+
+        <div class="volume-controls">
+            <i class="fa-solid fa-list" onclick="toggleQueue()" title="Queue"></i>
+            <i class="fa-solid fa-volume-high"></i>
+            <input type="range" min="0" max="100" value="100" id="volume-slider">
+        </div>
+    </div> -->
+
+    <!-- Queue Panel -->
+    <!-- <div id="queue-panel" class="queue-panel">
+        <div class="queue-header">
+            <h3>Queue</h3>
+            <span class="close-queue" onclick="toggleQueue()">&times;</span>
+        </div>
+        <div class="queue-list" id="queue-list"></div>
+    </div>
+
+    <audio id="audio"></audio>
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://www.spotify.com/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('login-modal')">&times;</span>
+            <div class="modal-header">
+                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt="Spotify Logo">
+                <h2>Log in to Spotify</h2>
+            </div>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-email">Email or username</label>
+                    <input type="text" id="login-email" placeholder="Email or username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <div class="form-options">
+                    <label class="toggle-container">
+                        <input type="checkbox" checked> Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot your password?</a>
+                </div>
+                <button type="submit" class="submit-btn">LOG IN</button>
+            </form>
+            <div class="divider"><span>or</span></div>
+            <div class="social-login">
+                <button class="social-btn"><i class="fa-brands fa-google"></i> Continue with Google</button>
+                <button class="social-btn"><i class="fa-brands fa-facebook"></i> Continue with Facebook</button>
+                <button class="social-btn"><i class="fa-brands fa-apple"></i> Continue with Apple</button>
+            </div>
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" onclick="switchModal('login-modal','signup-modal')">Sign up for Spotify</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('signup-modal')">&times;</span>
+            <div class="modal-header">
+                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt="Spotify Logo">
+                <h2>Sign up for Spotify</h2>
+            </div>
+            <form id="signup-form" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="signup-email">What's your email?</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-email">Confirm your email</label>
+                    <input type="email" id="signup-confirm-email" placeholder="Enter your email again" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Create a password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-name">What should we call you?</label>
+                    <input type="text" id="signup-name" placeholder="Enter a profile name" required>
+                </div>
+                <div class="form-group">
+                    <label>Date of birth</label>
+                    <div class="dob-inputs">
+                        <input type="number" id="dob-day" placeholder="Day" min="1" max="31" required>
+                        <select id="dob-month" required>
+                            <option value="" disabled selected>Month</option>
+                            <option>January</option><option>February</option><option>March</option>
+                            <option>April</option><option>May</option><option>June</option>
+                            <option>July</option><option>August</option><option>September</option>
+                            <option>October</option><option>November</option><option>December</option>
+                        </select>
+                        <input type="number" id="dob-year" placeholder="Year" min="1900" max="2024" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <label class="radio-container"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-container"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-container"><input type="radio" name="gender" value="non-binary"> Non-binary</label>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="toggle-container">
+                        <input type="checkbox" required>
+                        I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn">SIGN UP</button>
+            </form>
+            <div class="modal-footer">
+                <p>Already have an account? <a href="#" onclick="switchModal('signup-modal','login-modal')">Log in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="modal">
+        <div class="modal-content profile-modal-content">
+            <span class="close-btn" onclick="closeModal('profile-modal')">&times;</span>
+            <div class="profile-header">
+                <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+                <h2 id="profile-name">User Name</h2>
+            </div>
+            <div class="profile-stats">
+                <div class="stat-item"><span class="stat-number">0</span><span class="stat-label">Followers</span></div>
+                <div class="stat-item"><span class="stat-number">0</span><span class="stat-label">Following</span></div>
+            </div>
+            <div class="profile-actions">
+                <button class="profile-btn"><i class="fa-solid fa-user-plus"></i> Follow</button>
+                <button class="profile-btn"><i class="fa-solid fa-gear"></i> Settings</button>
+            </div>
+            <button class="logout-btn" onclick="handleLogout()">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="logo">
+                <a href="#"><img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt="Spotify Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="#" data-section="home" onclick="showSection('home'); closeSidebar(); return false;">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="search" onclick="showSection('search'); closeSidebar(); return false;">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="library" onclick="showSection('library'); closeSidebar(); return false;">
+                        <i class="fa-solid fa-book"></i> Your Library
+                    </a>
+                </li>
+            </ul>
+            <div class="playlist-section">
+                <h4>PLAYLISTS</h4>
+                <ul>
+                    <li onclick="filterPlaylist('all');       closeSidebar();">All Songs</li>
+                    <li onclick="filterPlaylist('chill');     closeSidebar();">Lo-Fi Beats</li>
+                    <li onclick="filterPlaylist('energetic'); closeSidebar();">Top Hits 2024</li>
+                    <li onclick="filterPlaylist('workout');   closeSidebar();">Gym Motivation</li>
+                    <li onclick="filterPlaylist('focus');     closeSidebar();">Focus Flow</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header-nav">
+                <div class="nav-buttons">
+                    <!-- Hamburger button — mobile only -->
+                    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleSidebar()" title="Menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <!-- Desktop back/forward -->
+                    <button id="back-btn" class="back-fwd"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="fwd-btn"  class="back-fwd"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="user-profile" id="user-profile-area">
+                    <button class="sign-up" onclick="openModal('signup-modal')">Sign Up</button>
+                    <button class="log-in"  onclick="openModal('login-modal')">Log In</button>
+                </div>
+            </div>
+
+            <!-- Home Section -->
+            <div id="home-section" class="content-section">
+                <h2>Good afternoon</h2>
+                <div class="recently-played" id="recently-played"></div>
+                <h2>Made For You</h2>
+                <div class="cards-container" id="cards-container"></div>
+            </div>
+
+            <!-- Search Section -->
+            <div id="search-section" class="content-section" style="display:none;">
+                <h2>Search</h2>
+                <div class="search-container">
+                    <input type="text" id="search-input"
+                           placeholder="What do you want to listen to?"
+                           oninput="handleSearch(event)">
+                </div>
+                <div class="search-categories">
+                    <button class="category-chip active" onclick="filterByCategory('all', event)">All</button>
+                    <button class="category-chip" onclick="filterByCategory('chill', event)">Chill</button>
+                    <button class="category-chip" onclick="filterByCategory('energetic', event)">Energetic</button>
+                    <button class="category-chip" onclick="filterByCategory('workout', event)">Workout</button>
+                    <button class="category-chip" onclick="filterByCategory('focus', event)">Focus</button>
+                </div>
+                <div class="cards-container" id="search-results"></div>
+            </div>
+
+            <!-- Library Section -->
+            <div id="library-section" class="content-section" style="display:none;">
+                <h2>Your Library</h2>
+                <div class="library-tabs">
+                    <button class="library-tab active" onclick="showLibraryTab('songs', this)">Songs</button>
+                    <button class="library-tab" onclick="showLibraryTab('albums', this)">Albums</button>
+                    <button class="library-tab" onclick="showLibraryTab('artists', this)">Artists</button>
+                    <button class="library-tab" onclick="showLibraryTab('playlists', this)">Playlists</button>
+                </div>
+                <div class="library-list" id="library-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Player Bar -->
+    <div class="player-bar">
+        <div class="song-info">
+            <img id="current-art" src="" alt="cover">
+            <div class="text">
+                <h4 id="current-title">Select a song</h4>
+                <p  id="current-artist">Artist Name</p>
+            </div>
+            <i class="fa-regular fa-heart like-icon" onclick="toggleLike(this)" title="Save to Liked Songs"></i>
+        </div>
+
+        <div class="player-controls">
+            <div class="control-buttons">
+                <i class="fa-solid fa-shuffle"       id="shuffle-btn" onclick="toggleShuffle()" title="Shuffle"></i>
+                <i class="fa-solid fa-backward-step" id="prev" title="Previous"></i>
+                <div class="play-pause" id="play-btn" onclick="togglePlay()">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <i class="fa-solid fa-forward-step" id="next" title="Next"></i>
+                <i class="fa-solid fa-repeat"        id="repeat-btn" onclick="toggleRepeat()" title="Repeat"></i>
+            </div>
+            <div class="progress-container">
+                <span id="curr-time">0:00</span>
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <span id="dur-time">0:00</span>
+            </div>
+        </div>
+
+        <div class="volume-controls">
+            <i class="fa-solid fa-list" onclick="toggleQueue()" title="Queue"></i>
+            <i class="fa-solid fa-volume-high"></i>
+            <input type="range" min="0" max="100" value="100" id="volume-slider">
+        </div>
+    </div>
+
+    <!-- Queue Panel -->
+    <div id="queue-panel" class="queue-panel">
+        <div class="queue-header">
+            <h3>Queue</h3>
+            <span class="close-queue" onclick="toggleQueue()">&times;</span>
+        </div>
+        <div class="queue-list" id="queue-list"></div>
+    </div>
+
+    <audio id="audio"></audio>
+    <script src="script.js"></script>
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebar-overlay').classList.toggle('active');
+        }
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebar-overlay').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
